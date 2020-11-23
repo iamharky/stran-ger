@@ -4,6 +4,25 @@
   "env": {
     "browser": true,
     "jest": true,
-    "es6": true
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+      "indent": [
+          "error",
+          "space"
+      ],
+      "linebreak-style": [
+          "error",
+          "unix"
+      ],
+      "quotes": [
+          "error",
+          "single"
+      ],
+      "semi": [
+          "error",
+          "always"
+      ]
   }
 }
