@@ -1,0 +1,84 @@
+#player {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 80px;
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+  box-shadow: 0 0 4px black;
+  padding: 0px;
+
+  .player-thumbnail {
+    width: 80px;
+  }
+
+  .play-pause {
+    width: 40px;
+    cursor: pointer;
+  }
+
+  #current-time {
+    font-size: 14px;
+    color: white;
+    margin: 0 10px 3px 0;
+  }
+
+  .progress {
+    position: relative;
+    display: flex;
+    flex-basis: 100%;
+    height: 4px;
+    background: #111;
+    cursor: pointer;
+
+    .progress-filled {
+      background: #ddd;
+    }
+  }
+
+  #duration {
+    font-size: 14px;
+    color: white;
+    margin: 0 10px 3px;
+  }
+
+  #playing-name {
+    color: orange;
+    position: absolute;
+    top: 6px;
+    left: calc(50% + 40px);
+    transform: translateX(-50%);
+    max-width: 70%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  #playing-link {
+    font-size: 12px;
+    color: #5bb; 
+    text-decoration: none;
+    position: absolute;
+    bottom: 4px;
+    right: 10px;
+  }
+
+  .playing-artist {
+    font-size: 12px;
+    position: absolute;
+    bottom: 4px;
+    left: 90px;
+    text-decoration: none;
+    color: #5bb;
+    margin-right: 4px;
+    max-width: 60%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
