@@ -13,7 +13,7 @@ const ContextProvider = ({children}) => {
   const progress = useRef(null);
   const progressFill = useRef(null);
 
-  const setPlayingNowTo = async (obj, dur) => {
+  const setPlayingNowTo = async (obj, dur, cover) => {
     if (playingNow) {
       // Pause current track
       audioEl.current.pause();
@@ -24,16 +24,19 @@ const ContextProvider = ({children}) => {
     }
 
     // Set new track
-    await setPlayingNow(obj);
+    await setPlayingNow({
+      ...obj,
+      cover: cover || obj.album.cover_medium,
+    });
     await setModifiedDuration(dur);
 
     // Play new track
     audioEl.current.play();
     await setIsPlaying(true);
   };
-  
+
   const playPause = () => {
-    if (audioEl.current.paused){
+    if (audioEl.current.paused) {
       audioEl.current.play();
       setIsPlaying(true);
     } else {
@@ -50,12 +53,12 @@ const ContextProvider = ({children}) => {
 
     // Update modifiedCurrentTime
     modifyCurrentTime(currentTime);
-  }
+  };
 
   const modifyCurrentTime = (cTime) => {
     const time = cTime || audioEl.current.currentTime;
 
-    let minutes = Math.floor(time/60).toString();
+    let minutes = Math.floor(time / 60).toString();
     minutes.length === 0 && (minutes = '00');
     minutes.length === 1 && (minutes = '0' + minutes);
 
@@ -64,18 +67,18 @@ const ContextProvider = ({children}) => {
     seconds.length === 1 && (seconds = '0' + seconds);
 
     setModifiedCurrentTime(`${minutes}:${seconds}`);
-  }
+  };
 
   const changeCurrentTime = (e) => {
     const newTime = (e.nativeEvent.offsetX / progress.current.offsetWidth) * audioEl.current.duration;
     audioEl.current.currentTime = newTime;
-  }
+  };
 
   const handleEnding = () => {
     setIsPlaying(false);
     progressFill.current.style.width = '0%';
     setModifiedCurrentTime('00:00');
-  }
+  };
 
   return (
     <Context.Provider
@@ -95,7 +98,7 @@ const ContextProvider = ({children}) => {
       }}>
       {children}
     </Context.Provider>
-  )
-}
+  );
+};
 
 export default ContextProvider;
