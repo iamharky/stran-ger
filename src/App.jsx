@@ -1,16 +1,29 @@
-import React from "react";
-import ContextProvider from "./Context";
-import Home from "./pages/Home";
-import Player from "./components/Player";
+import React from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import ContextProvider from './contexts/Context';
+import SearchContextProvider from './contexts/SearchContext';
+import Header from './components/Header';
+import Home from './pages/Home';
+import Album from './pages/Album';
+import Artist from './pages/Artist';
+import Player from './components/Player';
 
 const App = () => {
   return (
-    <ContextProvider>
-      <Home />
-      <Player />
-      {process.env.REACT_APP_API_ACCESS_KEY}
-    </ContextProvider>
-  )
-}
+    <BrowserRouter>
+      <ContextProvider>
+        <SearchContextProvider>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/album/:id" component={Album} />
+            <Route path="/artist/:id" component={Artist} />
+          </Switch>
+          <Player />
+        </SearchContextProvider>
+      </ContextProvider>
+    </BrowserRouter>
+  );
+};
 
 export default App;
