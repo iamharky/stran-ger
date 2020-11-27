@@ -1,5 +1,6 @@
 import React, {useContext, useState} from 'react';
-import {Context} from '../Context';
+import {Link} from 'react-router-dom';
+import {Context} from '../contexts/Context';
 import playIcon from '../assets/play.svg';
 import pauseIcon from '../assets/pause.svg';
 import './music-card.scss';
@@ -27,38 +28,42 @@ const MusicCard = ({track, duration}) => {
 
   return (
     <div className="music-card" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <div className="music-img"
-        style={{backgroundImage: `url(${track.album.cover_medium})`}}
-        alt={track.title}
-      >
-        <div className={(mouseEntered || ((playingNow?.id === track.id) && isPlaying)) ? 'img-overlay mouse-entered': 'img-overlay'}>
+      <div className="music-img" style={{backgroundImage: `url(${track.album.cover_medium})`}} alt={track.title}>
+        <div
+          className={
+            mouseEntered || (playingNow?.id === track.id && isPlaying) ? 'img-overlay mouse-entered' : 'img-overlay'
+          }>
           <img
             onClick={handlePlay}
             className="play-btn"
-            src={(playingNow?.id === track.id) && isPlaying ? pauseIcon : playIcon}
-            alt="Play-Pause"/>
-          <a
-            href={track.link}
-            className="music-open-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Open in Deezer</a>
+            src={playingNow?.id === track.id && isPlaying ? pauseIcon : playIcon}
+            alt="Play-Pause"
+          />
+          <a href={track.link} className="music-open-link" target="_blank" rel="noopener noreferrer">
+            Open in Deezer
+          </a>
         </div>
       </div>
       <div className="music-meta">
         <span className="music-name">{track.title}</span>
         <span className="music-artist">
-          From: <a className="link" href={"/artist/" + track.artist.id}>{track.artist.name}</a> 
+          From:{' '}
+          <Link className="link" to={'/artist/' + track.artist.id}>
+            {track.artist.name}
+          </Link>
         </span>
         <span className="music-album">
-          In: <a className="link" href={"/album/" + track.album.id}>{track.album.title}</a>
+          In:{' '}
+          <Link className="link" to={'/album/' + track.album.id}>
+            {track.album.title}
+          </Link>
         </span>
         <span className="music-duration">
           Duration: <span>{duration}</span>
         </span>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default MusicCard;
