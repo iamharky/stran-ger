@@ -1,6 +1,7 @@
 {
   "parser": "babel-eslint",
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "extends": ["prettier"],
+  "plugins": ["prettier"],
   "env": {
     "browser": true,
     "jest": true,
@@ -8,21 +9,17 @@
     "node": true
   },
   "rules": {
-      "indent": [
-          "error",
-          "2"
-      ],
-      "linebreak-style": [
-          "error",
-          "unix"
-      ],
-      "quotes": [
-          "error",
-          "single"
-      ],
-      "semi": [
-          "error",
-          "always"
-      ]
+    "prettier/prettier": [
+      "error",
+      {
+        "bracketSpacing": false,
+        "jsxBracketSameLine": true,
+        "singleQuote": true,
+        "trailingComma": "all",
+        "endOfLine": "auto",
+        "semi": true,
+        "printWidth": 120
+      }
+    ]
   }
 }
