@@ -12,7 +12,7 @@
     transition: .6s;
   }
 
-  .img-on-focused {
+  .focused-bg {
     filter: blur(6px);
     -webkit-filter: blur(6px);
   }
@@ -29,7 +29,7 @@
     position: absolute;
     top: 25%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 50%);
     transition: .4s;
     &:hover {
       box-shadow: 0 0 16px rgba(0, 0, 0, 0.6);
@@ -39,8 +39,7 @@
       flex: 9;
       font-size: 20px;
       border: none;
-      margin-left: 16px;
-      margin-right: -16px;
+      margin: 0 14px;
       outline: none;
       background-color: transparent;
     }
@@ -54,7 +53,7 @@
     }
   }
 
-  .focused {
+  .focused-bar {
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.6);
     background-color: #fffc !important;
   }
