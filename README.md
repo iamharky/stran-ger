@@ -1,11 +1,11 @@
 <div align="center">
   <h1>Stran-Ger</h1>
   <p>An app built with <b>React</b> that uses <b>Deezer API</b> over <b>RapidApi</b> to search for music, fetch & show popular musics, artist and album data.</p>
-  <a href="https://app.netlify.com/sites/stran-ger/deploys">
+  <a href="https://app.netlify.com/sites/stran-ger/deploys" target="_blank">
    <img src="https://api.netlify.com/api/v1/badges/07d2b0d6-4c96-422b-8855-8283ba4326bc/deploy-status" alt="Netlify Status">
-  <a>
-  <a href="https://github.com/iamharky/stran-ger">
-    <img src="https://img.shields.io/github/license/iamharky/stran-ger" alt="GitHub license">
+  </a>
+  <a href="https://github.com/iamharky/stran-ger/blob/master/LICENSE" target="_blank">
+    <img alt="GitHub license" src="https://img.shields.io/github/license/iamharky/stran-ger">
   </a>
   <br>
 </div>
@@ -14,7 +14,7 @@
 
 ## 💻 Demo
 
-The app is live on **Netlify**: https://stran-ger.netlify.app/
+The app is live on **Netlify**: <a href="https://stran-ger.netlify.app/" target="_blank">https://stran-ger.netlify.app/</a>
 <br/>
 
 ## 🚀 Installation
