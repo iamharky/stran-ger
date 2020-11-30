@@ -1,4 +1,5 @@
 import React, {useContext} from 'react';
+import {Link} from 'react-router-dom';
 import {Context} from '../contexts/Context';
 import playIcon from '../assets/play.svg';
 import pauseIcon from '../assets/pause.svg';
@@ -36,9 +37,9 @@ const Player = () => {
         <a href={playingNow.link} id="playing-link" target="_blank" rel="noopener noreferrer">
           Open in Deezer
         </a>
-        <a className="playing-artist" href={'/artist/' + playingNow.artist.id}>
+        <Link className="playing-artist" to={'/artist/' + playingNow.artist.id}>
           {playingNow.artist.name}
-        </a>
+        </Link>
       </div>
     );
   } else {
