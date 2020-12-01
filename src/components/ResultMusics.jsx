@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {SearchContext} from '../contexts/SearchContext';
 import MusicCard from './MusicCard';
+import MusicCardPlaceholder from './placeholders/MusicCardPlaceholder';
 
 const ResultMusics = () => {
   const [visibleResults, setVisibleResults] = useState([]);
@@ -23,12 +24,8 @@ const ResultMusics = () => {
     const rLen = results?.length || 0;
     const vrLen = visibleResults.length;
     // Load first 8 results
-    if (rLen > 0 && vrLen === 0) {
-      loadMoreResults();
-    }
-    if (rLen === 0) {
-      setVisibleResults([]);
-    }
+    rLen > 0 && vrLen === 0 && loadMoreResults();
+    rLen === 0 && setVisibleResults([]);
   }, [results]);
 
   const resultComponents = visibleResults.map((track) => {
@@ -44,7 +41,12 @@ const ResultMusics = () => {
     return (
       <>
         <h2 className="result-section-header">Searching '{searchTxt}'</h2>
-        <div className="loading" />
+        <div className="result-section">
+          <MusicCardPlaceholder />
+          <MusicCardPlaceholder />
+          <MusicCardPlaceholder />
+          <MusicCardPlaceholder />
+        </div>
       </>
     );
   } else if (searchTxt !== '' && error === '') {
