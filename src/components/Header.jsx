@@ -31,7 +31,7 @@ const Header = ({history, location}) => {
   return (
     <div id="header">
       <Link to="/" id="brand">
-        Stran
+        StranGer
       </Link>
       {!isHomePage() && (
         // Wrapped with form for mobile support
