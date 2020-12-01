@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import {Link, withRouter} from 'react-router-dom';
-import {SearchContext} from '../contexts/SearchContext';
-import './header.scss';
+import {SearchContext} from '../../contexts/SearchContext';
+import './index.scss';
 
 const Header = ({history, location}) => {
   const [searchText, setSearchText] = useState('');

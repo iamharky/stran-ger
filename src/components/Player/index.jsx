@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
 import {Link} from 'react-router-dom';
-import {Context} from '../contexts/Context';
-import playIcon from '../assets/play.svg';
-import pauseIcon from '../assets/pause.svg';
-import './player.scss';
+import {Context} from '../../contexts/Context';
+import playIcon from '../../assets/play.svg';
+import pauseIcon from '../../assets/pause.svg';
+import './index.scss';
 
 const Player = () => {
   const {

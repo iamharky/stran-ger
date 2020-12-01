@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
-import {SearchContext} from '../contexts/SearchContext';
-import searchIcon from '../assets/search.svg';
-import './searchbar.scss';
+import {SearchContext} from '../../contexts/SearchContext';
+import searchIcon from '../../assets/search.svg';
+import './index.scss';
 
 const SearchBar = () => {
   const [focused, setFocused] = useState(false);

@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
-import {Context} from '../contexts/Context';
-import playIcon from '../assets/play.svg';
-import pauseIcon from '../assets/pause.svg';
-import './music-list.scss';
+import {Context} from '../../contexts/Context';
+import playIcon from '../../assets/play.svg';
+import pauseIcon from '../../assets/pause.svg';
+import './index.scss';
 
 const MusicList = ({tracks, cover}) => {
   const {playingNow, setPlayingNowTo, isPlaying, playPause} = useContext(Context);

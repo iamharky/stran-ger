@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import './album-list.scss';
+import './index.scss';
 
 const AlbumList = ({albums}) => {
   return (

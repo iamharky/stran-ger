@@ -1,9 +1,9 @@
 import React, {useContext, useState} from 'react';
 import {Link} from 'react-router-dom';
-import {Context} from '../contexts/Context';
-import playIcon from '../assets/play.svg';
-import pauseIcon from '../assets/pause.svg';
-import './music-card.scss';
+import {Context} from '../../contexts/Context';
+import playIcon from '../../assets/play.svg';
+import pauseIcon from '../../assets/pause.svg';
+import './index.scss';
 
 const MusicCard = ({track, duration}) => {
   const [mouseEntered, setMouseEntered] = useState(false);
