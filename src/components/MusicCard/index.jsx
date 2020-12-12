@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {Link} from 'react-router-dom';
 import {Context} from '../../contexts/Context';
 import playIcon from '../../assets/play.svg';
@@ -6,13 +6,7 @@ import pauseIcon from '../../assets/pause.svg';
 import './index.scss';
 
 const MusicCard = ({track, duration}) => {
-  const [mouseEntered, setMouseEntered] = useState(false);
-
   const {playingNow, setPlayingNowTo, isPlaying, playPause} = useContext(Context);
-
-  const handleMouseEnter = () => setMouseEntered(true);
-
-  const handleMouseLeave = () => setMouseEntered(false);
 
   const handlePlay = () => {
     if (playingNow?.id === track.id) {
@@ -27,12 +21,9 @@ const MusicCard = ({track, duration}) => {
   };
 
   return (
-    <div className="music-card" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div className="music-card">
       <div className="music-img" style={{backgroundImage: `url(${track.album.cover_medium})`}} alt={track.title}>
-        <div
-          className={
-            mouseEntered || (playingNow?.id === track.id && isPlaying) ? 'img-overlay mouse-entered' : 'img-overlay'
-          }>
+        <div className={playingNow?.id === track.id && isPlaying ? 'img-overlay mouse-entered' : 'img-overlay'}>
           <img
             onClick={handlePlay}
             className="play-btn"
